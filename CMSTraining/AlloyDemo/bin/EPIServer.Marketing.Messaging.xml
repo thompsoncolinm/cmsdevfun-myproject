@@ -1,0 +1,299 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPIServer.Marketing.Messaging</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Marketing.Messaging.FanOutMessageDispatcher">
+            <summary>
+            The FanOutMessageDispatcher class routes messages to all registered 
+            message handlers capable of processing messages of a particular type.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.FanOutMessageDispatcher.#ctor(EPiServer.Marketing.Messaging.MessageHandlerRegistry)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="handlerRegistry">Collection of registered message handlers</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.FanOutMessageDispatcher.Dispatch(System.Object)">
+            <summary>
+            Dispatches the specified message to all registered handlers capable
+            of processing messages of this type of message.
+            </summary>
+            <param name="message">Message to be dispatched</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.FanOutMessageDispatcher.HandleMessage(System.Object,System.Object)">
+            <summary>
+            Directs the specified handler to process a message.
+            </summary>
+            <param name="handler">Handler to process the message</param>
+            <param name="message">Message to be processed</param>
+        </member>
+        <member name="T:EPiServer.Marketing.Messaging.IMessageDispatcher">
+            <summary>
+            The IMessageDispatcher interface describes a component capable of
+            dispatching messages according to a defined routing algorithm.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.IMessageDispatcher.Dispatch(System.Object)">
+            <summary>
+            Dispatches the specified message.
+            </summary>
+            <param name="message">Message to route</param>
+        </member>
+        <member name="T:EPiServer.Marketing.Messaging.IMessageEmitter">
+            <summary>
+            The IMessageEmitter interface describes a component issuing
+            messages to receiving systems.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.IMessageEmitter.Emit``1(``0)">
+            <summary>
+            Emits a message to receiving systems.
+            </summary>
+            <typeparam name="T">Type of message to be emitted</typeparam>
+            <param name="message">Message to emit</param>
+        </member>
+        <member name="T:EPiServer.Marketing.Messaging.IMessageHandler`1">
+            <summary>
+            The IMessageHandler interface describes a component capable of
+            processing a particular type of message.
+            </summary>
+            <typeparam name="T">Type of message to handler</typeparam>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.IMessageHandler`1.Handle(`0)">
+            <summary>
+            Processes the specified message.
+            </summary>
+            <param name="message">Message to be processed</param>
+        </member>
+        <member name="T:EPiServer.Marketing.Messaging.InMemory.InMemoryMessageEmitter">
+            <summary>
+            The InMemoryMessageEmitter class issues messages to an in-memory
+            message queue.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.InMemory.InMemoryMessageEmitter.#ctor(System.Collections.Concurrent.BlockingCollection{System.Object})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="queue">Queue to which messages will be issued</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.InMemory.InMemoryMessageEmitter.Emit``1(``0)">
+            <summary>
+            Emits messages to the in-memory queue associated with this emitter.
+            </summary>
+            <typeparam name="T">Type of message to emit</typeparam>
+            <param name="message">Message to be emitted</param>
+        </member>
+        <member name="T:EPiServer.Marketing.Messaging.InMemory.InMemoryMessageReceiver">
+            <summary>
+            The InMemoryMessageReceiver class receives messages that have
+            been emitted to an in-memory message queue.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.InMemory.InMemoryMessageReceiver.#ctor(EPiServer.Marketing.Messaging.IMessageDispatcher,System.Collections.Concurrent.BlockingCollection{System.Object})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="dispatcher">Dispatching algorithm by which messages should be handled</param>
+            <param name="queue">Queue by which messages will be received</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.InMemory.InMemoryMessageReceiver.Start(System.Threading.CancellationToken)">
+            <summary>
+            Directs this receiver to begin processing messages.
+            </summary>
+            <param name="cancellationToken">Notifies the receiver that its activities should be terminated</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.InMemory.InMemoryMessageReceiver.IsRunning(System.Threading.CancellationToken@)">
+            <summary>
+            Returns true if this receiver is processing messages, false otherwise.
+            </summary>
+            <param name="cancellationToken">Notifies the receiver that its activities should be terminated</param>
+            <returns>True if this receiver is processing messages, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.InMemory.InMemoryMessageReceiver.DequeueMessage(System.Threading.CancellationToken@,System.Action{System.Object})">
+            <summary>
+            Dequeues the next message in the receiver's queue and provides it as
+            input to the specified callback. If the queue is empty, this method
+            will block execution until one becomes available.
+            </summary>
+            <param name="cancellationToken">Notifies the receiver that its activities should be terminated</param>
+            <param name="callback">Action to take on the dequeued message</param>
+        </member>
+        <member name="T:EPiServer.Marketing.Messaging.InMemory.InMemoryQueueStore">
+            <summary>
+            The InMemoryQueueStore class is a repository delivering
+            in-memory queues for systems within a particular application
+            domain.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.InMemory.InMemoryQueueStore.#ctor(System.AppDomain)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="appDomain">Application domain from which to retrieve queues</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.InMemory.InMemoryQueueStore.Get(System.String)">
+            <summary>
+            Gets a queue with the specified name. If the queue does not
+            exist, it will be created.
+            </summary>
+            <param name="queueName">Name of the queue</param>
+            <returns>Queue with the specified name</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.InMemory.InMemoryQueueStore.GetQueue(System.String)">
+            <summary>
+            Gets a queue identified by the specified URI.
+            </summary>
+            <param name="queueUri">URI identifying the queue</param>
+            <returns>Queue with the specified URI</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.InMemory.InMemoryQueueStore.CreateQueue(System.String)">
+            <summary>
+            Creates a queue identified by the specified URI.
+            </summary>
+            <param name="queueUri">URI identifying the queue</param>
+            <returns>Queue with the specified URI</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.InMemory.InMemoryQueueStore.GenerateQueueUri(System.String)">
+            <summary>
+            Generates the URI identifying a queue with the specified
+            name.
+            </summary>
+            <param name="queueName">Name of queue</param>
+            <returns>Queue URI</returns>
+        </member>
+        <member name="T:EPiServer.Marketing.Messaging.MessageHandlerInvoker">
+            <summary>
+            The MessageHandlerInvoker is responsible for executing an action,
+            described by a particular message handler, to process a message. 
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.MessageHandlerInvoker.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.MessageHandlerInvoker.Invoke(System.Object,System.Object)">
+            <summary>
+            Invokes the specified message handler to process a message.
+            </summary>
+            <param name="handler">Message handler to be invoked</param>
+            <param name="message">Message to be processed</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.MessageHandlerInvoker.GetHandlerInvocation(System.Object,System.Type)">
+            <summary>
+            Gets the action described by the specified message handler from the
+            cache. If the action has not been cached, it will be compiled
+            cached prior to retrieving it.
+            </summary>
+            <param name="handler">Message handler to be invoked</param>
+            <param name="message">Type of message to be processed</param>
+            <returns>Action described by the specified message handler</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.MessageHandlerInvoker.GetInvocationCacheKey(System.Object,System.Type)">
+            <summary>
+            Returns a key identifying the cached action to invoke to handle the
+            specified message.
+            </summary>
+            <param name="handler">Handler exposing the action</param>
+            <param name="messageType">Type of message to handle</param>
+            <returns>Key identifying the action</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.MessageHandlerInvoker.CacheHandlerInvocation(System.Object,System.Type)">
+            <summary>
+            Compiles the action described by the specified handler and adds
+            it to the cache.
+            </summary>
+            <param name="handler">Handler describing the action to cache</param>
+            <param name="compiledHandler">Type of message handled by the action</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.MessageHandlerInvoker.CompileHandlerInvocation(System.Object,System.Type)">
+            <summary>
+            Dynamically compiles an action to invoke the specified message 
+            handler's "Handle" method.
+            </summary>
+            <remarks>
+            This method compiles a lambda expression to an Action delegate which 
+            invokes the appropriate "Handle" method on the specified handler. The 
+            compiled action can subsequently be cached and reused. This approach 
+            performs better than more traditional reflection alternatives, such 
+            as MethodInfo.Invoke().
+            </remarks>
+            <param name="handler">Handler describing the action to compile</param>
+            <param name="compiledHandler">Type of message handled by the action</param>
+            <returns>Compiled action to invoke the specified handler</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.MessageHandlerInvoker.IsHandlerInvocationCached(System.String)">
+            <summary>
+            Returns true if the action described by the specified message
+            handler has been cached, false otherwise.
+            </summary>
+            <param name="handler">Handler describing the action</param>
+            <returns>True if the action described by the specified message handler 
+            has been cached, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.MessageHandlerInvoker.GetCachedHandlerInvocation(System.String)">
+            <summary>
+            Retrieves a compiled handler action from the cache.
+            </summary>
+            <param name="handler">Handler describing the action to be retrieved from the cache</param>
+            <returns>Compiled handler action</returns>
+        </member>
+        <member name="T:EPiServer.Marketing.Messaging.MessageHandlerRegistry">
+            <summary>
+            The MessageHandlerRegistry class is a repository delivering
+            the message handlers configured for processing messages
+            received by a system.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.MessageHandlerRegistry.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.MessageHandlerRegistry.Register``1(EPiServer.Marketing.Messaging.IMessageHandler{``0})">
+            <summary>
+            Registers a message handler capable of processing a particular
+            type of message.
+            </summary>
+            <typeparam name="T">Type of message processed by the specified handler</typeparam>
+            <param name="handler">Handler to be registered</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.MessageHandlerRegistry.Register(System.Type,System.Object)">
+            <summary>
+            Registers a message handler capable of processing a particular
+            type of message.
+            </summary>
+            <param name="type">Type of message processed by the specified handler</param>
+            <param name="handler">Handler to be registered</param>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.MessageHandlerRegistry.Get``1">
+            <summary>
+            Gets a collection of message handlers capable of processing messages
+            of the specified type.
+            </summary>
+            <typeparam name="T">Type of message to be processed</typeparam>
+            <returns>Collection of message handlers capable of processing messages of the specified type</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.MessageHandlerRegistry.Get(System.Type)">
+            <summary>
+            Gets a collection of message handlers capable of processing messages
+            of the specified type.
+            </summary>
+            <param name="type">Type of message to be processed</param>
+            <returns>Collection of message handlers capable of processing messages of the specified type</returns>
+        </member>
+        <member name="M:EPiServer.Marketing.Messaging.MessageHandlerRegistry.FindOrCreateHandlerCollection(System.Type)">
+            <summary>
+            Gets a collection of message handlers registered to process messages
+            of the specified type. If no handlers have been registered for the
+            specified message type, an empty handler collection will be returned.
+            </summary>
+            <param name="key">Type of message to be proccessed</param>
+            <returns>Collection of message handlers capable of processing messages of the specified type</returns>
+        </member>
+    </members>
+</doc>

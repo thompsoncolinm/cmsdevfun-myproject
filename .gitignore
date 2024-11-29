@@ -1,0 +1,9 @@
+# Ignore Episerver files
+/CMSTraining/AlloyDemo/App_Data
+/CMSTraining/AlloyDemo/modules
+/CMSTraining/AlloyDemo/modulesbin
+/CMSTraining/AlloyDemo/modulesrepository
+/CMSTraining/AlloyDemo/modulesrepositorybin
+/CMSTraining/AlloyDemo/modulesrepositorytemp
+/CMSTraining/AlloyDemo/modulesrepositorytempbin
+
