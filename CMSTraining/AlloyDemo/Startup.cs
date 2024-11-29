@@ -1,5 +1,6 @@
 using System;
 using System.Web;
+using AlloyDemo.Features.RegisterPersonas;
 using EPiServer.Cms.UI.AspNetIdentity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -43,6 +44,9 @@ namespace AlloyDemo
                         regenerateIdentity: (manager, user) => manager.GenerateUserIdentityAsync(user))
                 }
             });
+
+            // Use the RegisterPersonas middleware to allow impersonation of users
+            app.UseRegisterPersonas(() => HttpContext.Current.Request.IsLocal);
         }
     }
 }

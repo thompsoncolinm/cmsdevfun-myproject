@@ -137,3 +137,10 @@ C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDem
 C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\bin\System.Net.Http.Formatting.xml
 C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\bin\System.Web.Http.xml
 C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\bin\System.Web.Http.WebHost.xml
+C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\bin\ImageResizer.dll
+C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\bin\ImageResizer.Plugins.WebP.dll
+C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\bin\Imazen.WebP.dll
+C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\bin\ImageResizer.xml
+C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\bin\ImageResizer.Plugins.WebP.xml
+C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\bin\Imazen.WebP.pdb
+C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\bin\Imazen.WebP.xml
