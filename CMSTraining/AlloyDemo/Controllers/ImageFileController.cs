@@ -28,7 +28,9 @@ namespace AlloyDemo.Controllers
             {
                 Url = _urlResolver.GetUrl(currentContent.ContentLink),
                 Name = currentContent.Name,
-                Copyright = currentContent.Copyright
+                Copyright = currentContent.Copyright,
+                Width = currentContent.Width,
+                Height = currentContent.Height
             };
 
             return PartialView(model);

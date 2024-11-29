@@ -1,4 +1,3 @@
-
 namespace AlloyDemo.Models.ViewModels
 {
     /// <summary>
@@ -20,5 +19,15 @@ namespace AlloyDemo.Models.ViewModels
         /// Gets or sets the copyright information of the image.
         /// </summary>
         public string Copyright { get; set; }
+
+        /// <summary>
+        /// Gets or sets the width of the image.
+        /// </summary>
+        public int Width { get; set; }
+
+        /// <summary>
+        /// Gets or sets the height of the image.
+        /// </summary>
+        public int Height { get; set; }
     }
 }

@@ -11,7 +11,7 @@
     {
         <div class="media">
             <div class="mediaImg" @Html.EditAttributes(x => x.Image)>
-                <img src="@Url.ContentUrl(Model.Image)" width="@Url.ContentUrl(Model.Width)" height="@Url.ContentUrl(Model.Height)"/>
+            <img src="@Url.ContentUrl(Model.Image)" width="@Model.ImageWidth" height="@Model.ImageHeight" alt="@Model.Heading" />
             </div>
             <div class="mediaText">
                 <h2 @Html.EditAttributes(x => x.Heading)>@Model.Heading</h2>
