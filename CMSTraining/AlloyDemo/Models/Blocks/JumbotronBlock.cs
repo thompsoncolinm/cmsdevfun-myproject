@@ -24,6 +24,20 @@ namespace AlloyDemo.Models.Blocks
         [UIHint(UIHint.Image)]
         public virtual ContentReference Image { get; set; }
 
+        [Display(
+            GroupName = SystemTabNames.Content,
+            Order = 5
+            )]
+        [CultureSpecific]
+        public virtual int ImageWidth { get; set; }
+
+        [Display(
+            GroupName = SystemTabNames.Content,
+            Order = 6
+            )]
+        [CultureSpecific]
+        public virtual int ImageHeight { get; set; }
+
         /// <summary>
         /// Gets or sets a description for the image, for example used as the alt text for the image when rendered
         /// </summary>

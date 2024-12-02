@@ -2,12 +2,23 @@
 
 <div class="row">
     <div class="span4 hidden-tablet hidden-phone">
-        @Html.PropertyFor(m=>m.Image)
+        @if (Model.Image != null)
+        {
+            var imageUrl = Url.ContentUrl(Model.Image);
+            if (Model.ImageWidth != 0 && Model.ImageHeight != 0)
+            {
+                <img src="@imageUrl" width="@Model.ImageWidth" height="@Model.ImageHeight" alt="@Model.ImageDescription" />
+            }
+            else
+            {
+                <img src="@imageUrl" alt="@Model.ImageDescription" />
+            }
+        }
     </div>
 
     <div class="span8">
         <h1 class="jumbotron" @Html.EditAttributes(m => m.Heading)>@Model.Heading</h1>
-        <p class="subHeader" @Html.EditAttributes(m=>m.SubHeading)>@Model.SubHeading</p>
+        <p class="subHeader" @Html.EditAttributes(m => m.SubHeading)>@Model.SubHeading</p>
         <a class="btn-blue right" href="@Model.ButtonLink" id="jumboLink" @Html.EditAttributes(m => m.ButtonText)>@Model.ButtonText</a>
     </div>
 </div>
