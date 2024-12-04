@@ -43,12 +43,12 @@ namespace AlloyDemo.Models.Blocks
 
         [Display(
             GroupName = SystemTabNames.Content,
-            Order = 6, Name = "Image Width")]
+            Order = 5, Name = "Image Width")]
         public virtual int ImageWidth { get; set; }
 
         [Display(
             GroupName = SystemTabNames.Content,
-            Order = 5, Name = "Image Height")]
+            Order = 6, Name = "Image Height")]
         public virtual int ImageHeight { get; set; }
     }
 }

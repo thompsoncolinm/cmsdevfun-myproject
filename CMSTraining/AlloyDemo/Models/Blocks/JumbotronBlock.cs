@@ -26,14 +26,14 @@ namespace AlloyDemo.Models.Blocks
 
         [Display(
             GroupName = SystemTabNames.Content,
-            Order = 5
+            Order = 1
             )]
         [CultureSpecific]
         public virtual int ImageWidth { get; set; }
 
         [Display(
             GroupName = SystemTabNames.Content,
-            Order = 6
+            Order = 1
             )]
         [CultureSpecific]
         public virtual int ImageHeight { get; set; }
