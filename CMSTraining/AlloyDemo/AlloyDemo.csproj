@@ -118,6 +118,9 @@
     <Reference Include="EPiServer.ImageLibrary, Version=11.20.11.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.AspNet.11.20.11\lib\net461\EPiServer.ImageLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="EPiServer.Labs.LanguageManager, Version=3.2.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Labs.LanguageManager.3.2.0\lib\EPiServer.Labs.LanguageManager.dll</HintPath>
+    </Reference>
     <Reference Include="EPiServer.Licensing, Version=11.20.11.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Framework.11.20.11\lib\net461\EPiServer.Licensing.dll</HintPath>
     </Reference>
@@ -489,6 +492,9 @@
     <Content Include="modules\_protected\EPiServer.Marketing.Testing\EPiServer.Marketing.Testing.zip" />
     <Content Include="Features\RegisterPersonas\RegisterPersonas.cshtml" />
     <Content Include="Features\Web.config" />
+    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\module.config" />
+    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.LanguageManager.config" />
+    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.Labs.LanguageManager.zip" />
     <None Include="packages.config" />
     <Content Include="Views\SearchPage\Index.cshtml" />
     <Content Include="Views\_viewstart.cshtml" />
