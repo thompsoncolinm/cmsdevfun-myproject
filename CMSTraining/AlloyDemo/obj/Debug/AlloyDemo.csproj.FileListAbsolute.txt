@@ -142,6 +142,6 @@ C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDem
 C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\bin\System.Web.WebPages.Razor.xml
 C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\obj\Debug\AlloyDemo.csproj.AssemblyReference.cache
 C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\obj\Debug\AlloyDemo.csproj.CoreCompileInputs.cache
-C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\obj\Debug\AlloyDemo.csproj.Up2Date
 C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\obj\Debug\AlloyDemo.dll
 C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\obj\Debug\AlloyDemo.pdb
+C:\Users\Colin.Thompson\code\Optimizely\cmsdevfun-myproject\CMSTraining\AlloyDemo\obj\Debug\AlloyDemo.csproj.Up2Date
